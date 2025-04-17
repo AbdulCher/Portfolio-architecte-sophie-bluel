@@ -135,7 +135,7 @@ li:hover {
 
 .gallery img {
 	width: 100%;
-
+	margin-top: 40px;
 }
 #contact {
 	width: 50%;
@@ -187,10 +187,134 @@ footer nav ul {
 }
 
 button {
-	border: solid #1D6154;
+	border: solid 1px #1D6154;
 	border-radius: 20px;
-	margin: 10px; 
-	padding: 10px;
+	margin: 8px; 
+	padding: 6px 15px 6px 15px;
+	font-size:  16px;
+	font-family: syne;
+}
 
+.btnTous {
+	margin-left: 290px;
+	padding: 6px 20px 6px 20px;
+	background-color: #1D6154;
+	color: white;
+	font-size:  16px;
+	font-family: syne;
+}
+
+                  /*Code rjouté*/
+					/*page connexion*/
+#login-form h2{
+	margin-bottom: 20px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+#login-form {
+	margin-left: 36%;
+	width: 30%;
+	text-align: left;
+	margin-top:30px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
 	
 }
+
+#login-form input {
+	height: 40px;
+	font-size: 1.2em;
+	border: none;
+	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+	
+}
+#login-form label {
+	margin: 2em 0 1em 0;
+}
+#login-form textarea {
+	border: none;
+	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+}
+
+/*MODALE*/
+/* Masquer par défaut */
+.openModalContent {
+	cursor: pointer;
+}
+#openModalBtn {
+	border: transparent;
+	background-color: #fff;
+	cursor: pointer;
+	
+}
+.iconModal {
+	font-size: 20px;
+	font-weight: 100;
+	margin-left: 30px;
+}
+
+.modal-hidden {
+	display: none;
+}
+  
+  /* Fond semi-transparent */
+#modal {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 1000;
+}
+  
+  /* Overlay font d'écran gris*/
+.modal-overlay {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.5);
+}
+  
+  /* Contenu de la modale */
+  .modal-content {
+	position: relative;
+	max-width: 500px;
+	margin: 100px auto;
+	background: #fff;
+	padding: 20px;
+	z-index: 1001;
+	border-radius: 8px;
+	text-align: center;
+}
+  
+  /* Bouton de fermeture */
+.close-modal {
+	position: absolute;
+	top: 10px;
+	right: 15px;
+	font-size: 24px;
+	border: none;
+	background: none;
+	cursor: pointer;
+}
+  
+  /* Bouton Ajouter */
+.add-photo {
+	margin-top: 20px;
+	padding: 10px 20px;
+	background-color: #1D6154;
+	color: white;
+	border: none;
+	cursor: pointer;
+	border-radius: 40px;
+}
+
+.modalTitle {
+	color: grey;
+}
+
+  

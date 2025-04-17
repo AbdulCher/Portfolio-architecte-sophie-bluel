@@ -7,6 +7,11 @@
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Work+Sans&display=swap" rel="stylesheet">
+	<link rel="stylesheet" 
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" 
+        integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" 
+        crossorigin="anonymous" 
+        referrerpolicy="no-referrer"/>
 	<meta name="description" content="">
 	<link rel="stylesheet" href="./assets/style.css">
 </head>
@@ -35,7 +40,33 @@
 		</article>
 	</section>
 	<section id="portfolio">
-		<h2>Mes Projets</h2>
+		
+
+		<!-- Bouton pour ouvrir la modale -->
+		 <div class="openModalContent">
+			<h2>Mes Projets</h2>
+			<i class="fa-regular fa-pen-to-square iconModal"></i>
+			<button id="openModalBtn">modifier</button>
+			
+
+		</div>
+
+		<!-- MODALE -->
+		<div id="modal" class="modal-hidden"> <!--cacher la modale-->
+			<div class="modal-overlay"></div> <!--recouvrir la page-->
+
+			<div class="modal-content">    <!---contenu de la modale-->
+				<button class="close-modal">&times;</button> <!--bouton avec icon fermer modale-->
+
+				<div class="modal-body" id="modalBody">
+					<h2 class="modalTitle">Galerie photo</h2>
+					<!--bouton pour ajouter photo depuis modale-->
+					<button class="add-photo" id="showAddPhotoForm">Ajouter une photo</button>
+				</div>
+			</div>
+		</div>
+
+				
 		<div class="filters">
 			
 		</div>
@@ -65,7 +96,9 @@
 		</ul>
 	</nav>
 </footer>
+
 </body>
-<script type="module" src="frontend.js/works.js"></script>
+<script type="module" src="script/works.js"></script>
+<script type="module" src="script/modal.js"></script>
 
 </html>
