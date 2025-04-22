@@ -22,7 +22,7 @@
 		<ul>
 			<li>projets</li>
 			<li>contact</li>
-			<li>login</li>
+			<li id="loginBtn"><a href="login.html">login</a></li>
 			<li><img src="./assets/icons/instagram.png" alt="Instagram"></li>
 		</ul>
 	</nav>
@@ -41,28 +41,26 @@
 	</section>
 	<section id="portfolio">
 		
-
-		<!-- Bouton pour ouvrir la modale -->
-		 <div class="openModalContent">
 			<h2>Mes Projets</h2>
+
+		<!--TODO Bouton pour ouvrir la modale 
+		<div class="openModalContent">
 			<i class="fa-regular fa-pen-to-square iconModal"></i>
 			<button id="openModalBtn">modifier</button>
 		
-		</div>
+		</div>-->
 
-		<!-- MODALE -->
-		<div id="modal" class="modal-hidden"> <!--cacher la modale-->
-			<div class="modal-overlay"></div> <!--recouvrir la page-->
+		
 
-			<div class="modal-content">    <!---contenu de la modale-->
-				<button class="close-modal">&times;</button> <!--bouton avec icon fermer modale-->
-
-				<div class="modal-body" id="modalBody">
-					<h2 class="modalTitle">Galerie photo</h2>
-					<!--bouton pour ajouter photo depuis modale-->
-					<button class="add-photo" id="showAddPhotoForm">Ajouter une photo</button>
-				</div>
+		<div id="modal" class="modal-hidden">
+		<div class="modal-overlay"></div>
+		<div class="modal-content">
+			<span class="modal-close">&times;</span>
+			<div id="modalBody">
+			<div id="modal-gallery"></div>
+			<button id="showAddPhotoForm">Ajouter une photo</button>
 			</div>
+		</div>
 		</div>
 
 				
@@ -97,7 +95,7 @@
 </footer>
 
 </body>
-<script type="module" src="script/works.js"></script>
-<script type="module" src="script/modal.js"></script>
+<script src="script/works.js" defer></script>
+<script src="script/modal.js" defer></script>
 
 </html>

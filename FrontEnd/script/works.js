@@ -1,4 +1,5 @@
-let allWorks = []; // Stocker tous les travaux ici
+// Stocker tous les travaux ici
+let allWorks = []; 
 
 // Récupérer et afficher les travaux
 async function getWorks() {
@@ -6,7 +7,6 @@ async function getWorks() {
     const response = await fetch("http://localhost:5678/api/works");
     const works = await response.json();
 
-    localStorage.setItem("nom", "works") // Stockage dans localStorage
 
     allWorks = works; // Sauvegarde tous les travaux récupérés
     displayWorks(allWorks); // On les affiche tous au départ

@@ -237,6 +237,9 @@ button {
 	border: none;
 	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
 }
+#loginBtn a {
+	text-decoration: none;
+}
 
 /*MODALE*/
 /* Masquer par défaut */
