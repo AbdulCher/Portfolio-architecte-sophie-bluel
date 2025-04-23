@@ -26,3 +26,4 @@ async function loginUser(email, password) {
        alert("Identifiants incorrects. Veuillez réessayer.");
    }
 }
+

@@ -101,3 +101,43 @@ getWorks();       // Récupère et affiche les travaux
 getCategories();  // Récupère et affiche les boutons catégories
 
 
+// Vérifier utilisateur connecté avec token détecté et afficher modalBtn
+
+async function isConnected() {
+  const token = localStorage.getItem("token");
+  console.log("Token détecté :", token);
+
+  if (token) {
+    const openModalContent = document.querySelector(".openModalContent");
+    const openModalBtn = document.createElement("button");
+    openModalBtn.id = "openModalBtn";
+    openModalBtn.classList.add("modalBtn");
+    openModalBtn.innerHTML = '<i class="fa-regular fa-pen-to-square iconModal"></i> modifier';
+    openModalContent.appendChild(openModalBtn);
+  }
+}
+isConnected();
+
+//Gestion connection et deconnection utilisateur
+
+document.addEventListener("DOMContentLoaded", () => {
+  const loginBtn = document.getElementById("loginBtn");
+  const token = localStorage.getItem("token");
+
+  if (token) {
+    // L'utilisateur est connecté → afficher "logout"
+    loginBtn.textContent = "logout";
+    loginBtn.style.cursor = "pointer";
+
+    // Clique sur "logout" → suppression du token + redirection
+    loginBtn.addEventListener("click", () => {
+      localStorage.removeItem("token");
+      window.location.reload(); // Recharge la page pour mettre à jour l'état
+    });
+  } else {
+    // Si l'utilisateur n'est pas connecté → clic redirige vers la page de connexion
+    loginBtn.addEventListener("click", () => {
+      window.location.href = "login.html";
+    });
+  }
+});

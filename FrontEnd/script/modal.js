@@ -10,7 +10,7 @@ const imageModalContent = document.querySelector("modal-content")
 });
 
 // Fermer en cliquant sur la croix
-  closeBtn.addEventListener("click", () => {
+ closeBtn.addEventListener("click", () => {
   modal.classList.add("modal-hidden");
 });
 
