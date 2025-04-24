@@ -141,3 +141,9 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
+
+
+const showFormBtn = document.getElementById("showAddPhotoForm");
+showFormBtn.addEventListener("click", displayAddPhotoForm);
+
+

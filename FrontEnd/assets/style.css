@@ -295,7 +295,7 @@ button {
 }
   
   /* Bouton de fermeture */
-.close-modal {
+.modal-close {
 	position: absolute;
 	top: 10px;
 	right: 15px;
@@ -320,4 +320,36 @@ button {
 	color: grey;
 }
 
+#modal-gallery figure {
+	position: relative;
+	display: inline-block;
+	margin: 10px;
+  }
+  
+  .deleteIcon {
+	position: absolute;
+	top: 5px;
+	right: 5px;
+	border: none;
+	background: none;
+	color: red;
+	cursor: pointer;
+  }
+  
+
+  #preview-image {
+	width: 40%;
+	
+  }
+
+  .add-photo-form {
+	display: flex;
+	flex-direction: column;
+	position: relative;
+  }
+
+  .upload-label {
+	position: relative;
+	z-index: 1001;
+  }
   
