@@ -1,7 +1,11 @@
+//AJOUT DE LA FENETRE MODALE
+
 const openBtn = document.getElementById("openModalBtn");
 const modal = document.getElementById("modal");
 const closeBtn = document.querySelector(".modal-close"); // ✅ corrigé ici
 const overlay = document.querySelector(".modal-overlay");
+
+//GESTION APPARITION ET DISPARITION MODALE
 
 // Ouvrir la modale
 openBtn.addEventListener("click", () => {
@@ -19,6 +23,8 @@ overlay.addEventListener("click", () => {
   modal.classList.add("modal-hidden");
 });
 
+// GESTION DE L'AJOUT ET DE LA SUPPRESSION DE PROJET
+
 async function loadGallery() {
   const modalGallery = document.getElementById("modal-gallery");
   modalGallery.innerHTML = ""; // Vide la galerie à chaque ouverture
@@ -29,18 +35,20 @@ async function loadGallery() {
 
     works.forEach((work) => {
       const figure = document.createElement("figure");
-
       const img = document.createElement("img");
       img.src = work.imageUrl;
       img.alt = work.title;
+
+// Suppression avec l'icône photo
 
       const deleteBtn = document.createElement("button");
       deleteBtn.innerHTML = '<i class="fa-solid fa-trash-can"></i>';
       deleteBtn.dataset.id = work.id; //
       deleteBtn.classList.add("deleteIcon");
-      deleteBtn.addEventListener("click", async (event) => {
-        const token = localStorage.getItem("token");
-        
+
+      //Ajoute écouteur d'évènement sur le bouton de suppression
+      deleteBtn.addEventListener("click", async (event) => { 
+        const token = localStorage.getItem("token"); //Récupère token
         const workId = event.currentTarget.dataset.id; // Récupère l'ID de la photo à supprimer
         console.log("e.currentTarget:", event.currentTarget);
         try {
@@ -72,6 +80,8 @@ async function loadGallery() {
 const showAddPhotoFormBtn = document.getElementById("showAddPhotoForm");
 showAddPhotoFormBtn.addEventListener("click", displayAddPhotoForm);
 
+//Affichage formulaire d'ajout de projet de la modale
+
 function displayAddPhotoForm() {
   const modalBody = document.getElementById("modalBody");
   const addPhotoForm = document.getElementById("addPhotoForm");
@@ -99,18 +109,24 @@ async function fetchCategories() {
   });
 }
 
+//Fonction pour voir l'mage choisi dans le champ fichier
 function handleImagePreview() {
-  const input = document.getElementById("image");
+  //accède au premier fichier sélectionné dans le champ input
+  const input = document.getElementById("image"); 
   const preview = document.getElementById("preview-image");
 
-  input.addEventListener("change", () => {
+//écoute l'événement "change" sur le champ fichie
+  input.addEventListener("change", () => { 
     const file = input.files[0];
+    //vérifie qu’un fichier a bien été sélectionné
     if (file) {
       preview.src = URL.createObjectURL(file);
       preview.style.display = "block";
     }
   });
 }
+
+//ENVOIE NOUVEAU PROJET AU BACKEND VIA FORMULAIRE MODALE
 
 function handlePhotoSubmit() {
   const form = document.getElementById("add-photo-form");
@@ -138,3 +154,37 @@ function handlePhotoSubmit() {
     }
   });
 }
+
+//Gestion de rediriger l'utilisatueur via l'icône back
+const backIcon = document.querySelector(".backToGallery");
+backIcon.addEventListener("click", () => {
+  const modalBody = document.getElementById("modalBody");
+
+  // On reconstruit proprement la vue Galerie
+  modalBody.innerHTML = `
+    <div id="modalGalleryView">
+      <h2 class="modalTitle">Galerie photo</h2>
+      <div id="modal-gallery"></div>
+      <button id="showAddPhotoForm">Ajouter une photo</button>
+    </div>
+  `;
+
+  // Recharge les images
+  loadGallery();
+
+  // Reconnecte le bouton "Ajouter une photo"
+  const showAddPhotoForm = document.getElementById("showAddPhotoForm");
+  showAddPhotoForm.addEventListener("click", displayAddPhotoForm);
+
+  // Reconnecte la fermeture de la modale si nécessaire
+  const closeBtn = document.querySelector(".modal-close");
+  const overlay = document.querySelector(".modal-overlay");
+
+  closeBtn.addEventListener("click", () => {
+    modal.classList.add("modal-hidden");
+  });
+
+  overlay.addEventListener("click", () => {
+    modal.classList.add("modal-hidden");
+  });
+});

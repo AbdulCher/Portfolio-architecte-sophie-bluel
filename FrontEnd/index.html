@@ -44,11 +44,11 @@
 		<div class="modalBtnTitle">
 			<h2 class="mesProjet">Mes Projets</h2>
 
+			<!--Bouton de la modale--->
 			<div class="openModalContent"></div>
 		</div>
 
-		
-
+		<!-- HTML gestion apparition et disparition modale-->
 		<div id="modal" class="modal-hidden">
 			<div class="modal-overlay"></div>
 			<div class="modal-content">
@@ -56,14 +56,14 @@
 				<div id="modalBody">
 					<h2 class="modalTitle">Galérie photo</h2>
 					<div id="modal-gallery"></div>
-					
 					<button id="showAddPhotoForm">Ajouter une photo</button>
 				</div>
 			</div>
 		</div>
 
-		<!-- HTML madale ajouter photo -->
+		<!-- HTML modale ajouter une photo-->
 		<div id="addPhotoForm" class="hidden">
+			<i class="fa fa-arrow-left backToGallery"></i>
 			<h2 class="modalTitle">Ajouter une photo</h2>
 			<form class="add-photo-form" id="add-photo-form">
 				<div class="upload-area">
@@ -75,7 +75,7 @@
 					</div>
 				</div>
 				  
-		
+				<!--Formulaire de la modale-->
 				<label for="title" class="photoTitle">Titre</label>
 				<input type="text" id="title" name="title" required>
 			
@@ -92,14 +92,17 @@
 			</form>
 		</div>
 			
+		<!--Gestion de filtre des category-->
 		<div class="filters">
-			
+
 		</div>
+
+		<!--Gestion de la gallery-->
 		<div class="gallery">
 			
 		</div>
 	</section>
-	<section id="contact">
+	<section id="contact"> <!--Formulaire de contact de la page d'accueil-->
 		<h2>Contact</h2>
 		<p>Vous avez un projet ? Discutons-en !</p>
 		<form action="#" method="post">

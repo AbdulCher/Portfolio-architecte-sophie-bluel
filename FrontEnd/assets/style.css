@@ -204,8 +204,9 @@ button {
 	font-family: syne;
 }
 
-                  /*Code rjouté*/
-					/*page connexion*/
+                 			 /*CODE AJOUTE*/
+
+/*page connexion*/
 #login-form h2{
 	margin-bottom: 20px;
 	display: flex;
@@ -220,15 +221,12 @@ button {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-	
 }
-
 #login-form input {
 	height: 40px;
 	font-size: 1.2em;
 	border: none;
 	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
-	
 }
 #login-form label {
 	margin: 2em 0 1em 0;
@@ -240,17 +238,15 @@ button {
 #loginBtn a {
 	text-decoration: none;
 }
+									/*MODALE*/
 
-								/*MODALE*/
 /* Masquer par défaut */
 .modalBtnTitle {
 	display: flex;
 	flex-direction: row;
 	justify-content: center;
-	
 }
 .openModalContent {
-	
 	cursor: pointer;
 }
 #openModalBtn {
@@ -263,8 +259,6 @@ button {
 	font-weight: 100;
 	margin-left: 10px;
 	margin-right: 10px;
-	
-	
 }
 .mesProjet {
 	margin-top: 10px;
@@ -272,8 +266,8 @@ button {
 .modal-hidden {
 	display: none;
 }
-  
-  /* Fond semi-transparent */
+ 
+/* Fond semi-transparent */
 #modal {
 	position: fixed;
 	top: 0;
@@ -282,8 +276,8 @@ button {
 	height: 100%;
 	z-index: 1000;
 }
-  
-  /* Overlay font d'écran gris*/
+
+/* Overlay font d'écran gris*/
 .modal-overlay {
 	position: absolute;
 	top: 0;
@@ -293,8 +287,7 @@ button {
 	background-color: rgba(0, 0, 0, 0.5);
 }
   
-  /* Contenu de la modale */
-
+/* Contenu de la modale */
 .modal-content {
 	position: relative;
 	width: 500px;
@@ -306,28 +299,23 @@ button {
 	border-radius: 8px;
 	text-align: center;
 }
-
 #modal-gallery {
 	display: flex;
 	flex-wrap: wrap;
 	gap: 1px;
-	
 }
-  
-  #modal-gallery figure {
+#modal-gallery figure {
 	width: calc(15% - 1px); /* 5 par ligne */
 	margin: 10px;
 	position: relative;
-  }
-  
-  #modal-gallery img {
+}
+#modal-gallery img {
 	width: 100%;
 	height: auto;
 	object-fit: cover;
-	
-  }
+}
   
-  /* Bouton de fermeture */
+/* Bouton de fermeture */
 .modal-close {
 	position: absolute;
 	top: 10px;
@@ -338,7 +326,7 @@ button {
 	cursor: pointer;
 }
 
-  /* Bouton Ajouter */
+/* Bouton Ajouter photo de la modale*/
 .add-photo {
 	margin-top: 20px;
 	padding: 10px 20px;
@@ -348,19 +336,18 @@ button {
 	cursor: pointer;
 	border-radius: 40px;
 }
-
 .modalTitle {
 	color: grey;
 	font-size: 20px;
 	padding-top: 20px;
 }
-
 #modal-gallery figure {
 	position: relative;
 	display: inline-block;
 	margin: 10px;
 }
-  
+
+/*Icône de suppression de photo*/
 .deleteIcon {
 	position: absolute;
 	top: 0px;
@@ -375,34 +362,25 @@ button {
 	padding: 4px;
 	z-index: 2;
 }
-  
 
-
-
+/*Formulaire d'ajout de photo de la modale*/
 .add-photo-form {
 	display: flex;
 	flex-direction: column;
 	position: relative;
 }
-
 .upload-info {
 	position: relative;
 	z-index: 2;
 }
-
-
-
-
 #showAddPhotoForm {
 	background-color: #1D6154;
 	color: #fff;
 	padding: 4px 20px 4px 20px;
 }
-
 .hidden {
 	display: none;
 }
-
 .add-photo-form input,
 .add-photo-form select {
   width: 100%;
@@ -411,7 +389,6 @@ button {
   border-radius: 6px;
   border: 1px solid #ccc;
 }
-
 .upload-area {
 	display: flex;
 	flex-direction: column;
@@ -421,21 +398,16 @@ button {
 	background-color: #E8F1F6;
 	width: 74%;
 	margin-left: 50px;
-}
-  
-  
+}  
 #preview-image {
 	width: 100%;
 	max-height: 180px;
 	border-radius: 6px;
 	margin: 0px 80px;
 	object-fit: cover;
-	
-	
-  }
+}
   
-  /* Téléchargement photo maodale  */
-
+/* Téléchargement photo modale  */
 .preview-wrapper {
 	position: relative;
 	width: 100%;
@@ -449,7 +421,6 @@ button {
 	color: #306685;
 	padding: 3px 24px;
 	font-size: 12px;
-	
 }
 .upload-label {
 	position: absolute;
@@ -459,20 +430,16 @@ button {
 	background-color: #CBD6DC;
 	color: #306685;
 	padding: 2px 15px;
-}
-  
+} 
 .photoTitle {
 	display: flex;
 	justify-content: start;
 	margin: 20px 0px 10px 50px;
-	
 }
-
 .photoCategory {
 	display: flex;
 	justify-content: start;
 	margin: 10px 0px 10px 50px;
-	
 }
 #category {
 	width: 74%;
@@ -499,5 +466,12 @@ button {
 	padding: 8px;
 	margin-bottom: 20px;
   }
-  
-  
+  .backToGallery {
+	position: absolute;
+	top: 10px;
+	left: 18px;
+	font-size: 18px;
+	border: none;
+	background: none;
+	cursor: pointer;
+}
