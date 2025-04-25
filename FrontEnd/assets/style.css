@@ -283,16 +283,38 @@ button {
 }
   
   /* Contenu de la modale */
-  .modal-content {
+
+.modal-content {
 	position: relative;
-	max-width: 500px;
+	width: 500px;
+	height: auto;
 	margin: 100px auto;
+	padding: 0px 0px 0px 20px;
 	background: #fff;
-	padding: 20px;
 	z-index: 1001;
 	border-radius: 8px;
 	text-align: center;
 }
+
+#modal-gallery {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 1px;
+	
+}
+  
+  #modal-gallery figure {
+	width: calc(15% - 1px); /* 5 par ligne */
+	margin: 10px;
+	position: relative;
+  }
+  
+  #modal-gallery img {
+	width: 100%;
+	height: auto;
+	object-fit: cover;
+	
+  }
   
   /* Bouton de fermeture */
 .modal-close {
@@ -304,7 +326,7 @@ button {
 	background: none;
 	cursor: pointer;
 }
-  
+
   /* Bouton Ajouter */
 .add-photo {
 	margin-top: 20px;
@@ -318,38 +340,152 @@ button {
 
 .modalTitle {
 	color: grey;
+	font-size: 24px;
+	padding-top: 20px;
 }
 
 #modal-gallery figure {
 	position: relative;
 	display: inline-block;
 	margin: 10px;
-  }
+}
   
-  .deleteIcon {
+.deleteIcon {
 	position: absolute;
-	top: 5px;
-	right: 5px;
+	top: 0px;
+	right: 0px;
+	width: 24px;
+	height: 24px;
+	background-color: black;
+	color: #fff;
+	font-size: 10px;
 	border: none;
-	background: none;
-	color: red;
 	cursor: pointer;
-  }
+	padding: 4px;
+	z-index: 2;
+}
   
 
-  #preview-image {
-	width: 40%;
-	
-  }
 
-  .add-photo-form {
+
+.add-photo-form {
 	display: flex;
 	flex-direction: column;
 	position: relative;
-  }
+}
 
-  .upload-label {
+.upload-info {
+	position: relative;
+	z-index: 2;
+}
+
+
+
+
+#showAddPhotoForm {
+	background-color: #1D6154;
+	color: #fff;
+	padding: 4px 20px 4px 20px;
+}
+
+.hidden {
+	display: none;
+}
+
+.add-photo-form input,
+.add-photo-form select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.upload-area {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 10px;
+	border: solid transparent;
+	background-color: #E8F1F6;
+	width: 74%;
+	margin-left: 50px;
+}
+  
+  
+#preview-image {
+	width: 100%;
+	max-height: 180px;
+	border-radius: 6px;
+	margin: 0px 80px;
+	object-fit: cover;
+	
+	
+  }
+  
+  /* Téléchargement photo maodale  */
+
+.preview-wrapper {
+	position: relative;
+	width: 100%;
+	max-width: 310px;
+	display: flex;
+	justify-content: center;
+}
+.upload-info {
+	position: absolute;
+	bottom: 8px;
+	color: #306685;
+	padding: 3px 24px;
+	font-size: 12px;
+	
+}
+.upload-label {
+	position: absolute;
+	top: 128px;
+	border: solid transparent;
+	border-radius: 50px;
+	background-color: #CBD6DC;
+	color: #306685;
+	padding: 2px 15px;
+}
+  
+.photoTitle {
+	display: flex;
+	justify-content: start;
+	margin: 20px 0px 10px 50px;
+	
+}
+
+.photoCategory {
+	display: flex;
+	justify-content: start;
+	margin: 10px 0px 10px 50px;
+	
+}
+#category {
+	width: 74%;
+	margin-left: 50px;
+	padding: 10px;
+}
+#title {
+	width: 70%;
+	margin-left: 50px;
+	padding: 10px;
+}
+.btn-valider {
+	margin-left: 150px;
+	border: none;
+	cursor: pointer;
+	font-weight: bold;
+	width: 40%;
 	position: relative;
 	z-index: 1001;
+	border: solid transparent;
+	border-radius: 50px;
+	background-color: #A7A7A7;
+	color: #fff;
+	padding: 8px;
+	margin-bottom: 20px;
   }
   

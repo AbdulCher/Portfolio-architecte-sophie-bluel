@@ -36,19 +36,20 @@ async function loadGallery() {
 
       const deleteBtn = document.createElement("button");
       deleteBtn.innerHTML = '<i class="fa-solid fa-trash-can"></i>';
+      deleteBtn.dataset.id = work.id; //
       deleteBtn.classList.add("deleteIcon");
-
-      deleteBtn.addEventListener("click", async () => {
+      deleteBtn.addEventListener("click", async (event) => {
         const token = localStorage.getItem("token");
-
+        
+        const workId = event.currentTarget.dataset.id; // Récupère l'ID de la photo à supprimer
+        console.log("e.currentTarget:", event.currentTarget);
         try {
-          const res = await fetch(`http://localhost:5678/api/works`, {
+          const res = await fetch(`http://localhost:5678/api/works/${workId}`, {
             method: "DELETE",
             headers: {
               Authorization: `Bearer ${token}`,
             },
           });
-
           if (res.ok) {
             figure.remove(); // Supprime visuellement la photo
           } else {
@@ -58,7 +59,7 @@ async function loadGallery() {
           console.error("Erreur:", err);
         }
       });
-
+      
       figure.appendChild(img);
       figure.appendChild(deleteBtn);
       modalGallery.appendChild(figure);
@@ -73,32 +74,12 @@ showAddPhotoFormBtn.addEventListener("click", displayAddPhotoForm);
 
 function displayAddPhotoForm() {
   const modalBody = document.getElementById("modalBody");
-  modalBody.innerHTML = `
-  <h2 class="modalTitle">Ajouter une photo</h2>
-  <form class="add-photo-form">
-    <div class="upload-area">
-      <img id="preview-image" src="./assets/icons/image-placeholder.svg" alt="Aperçu">
-      <label for="image" class="upload-label">+ Ajouter photo</label>
-      <input type="file" id="image" name="image" accept="image/*" hidden required>
-      <p class="upload-info">jpg, png : 4mo max</p>
-    </div>
+  const addPhotoForm = document.getElementById("addPhotoForm");
 
-    <label for="title">Titre</label>
-    <input type="text" id="title" name="title" required>
-
-    <label for="category">Catégorie</label>
-    <select id="category" name="category" required>
-      <option value="">Sélectionner</option>
-      <option value="1">Objets</option>
-      <option value="2">Appartements</option>
-      <option value="3">Hôtels & restaurants</option>
-    </select>
-
-    <hr>
-    <button type="submit" class="btn-valider">Valider</button>
-  </form>
-
-  `;
+  // Déplace le formulaire déjà écrit dans le HTML dans la modale
+  modalBody.innerHTML = ""; // Vide ce qu’il y avait avant
+  modalBody.appendChild(addPhotoForm);
+  addPhotoForm.classList.remove("hidden"); // Affiche le formulaire
 
   fetchCategories();
   handleImagePreview();
