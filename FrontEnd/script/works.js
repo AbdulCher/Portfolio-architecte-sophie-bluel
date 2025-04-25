@@ -108,12 +108,17 @@ async function isConnected() {
   console.log("Token détecté :", token);
 
   if (token) {
+    //Fais apparaitre mon bouton pour ouvrir la modale
     const openModalContent = document.querySelector(".openModalContent");
     const openModalBtn = document.createElement("button");
     openModalBtn.id = "openModalBtn";
     openModalBtn.classList.add("modalBtn");
     openModalBtn.innerHTML = '<i class="fa-regular fa-pen-to-square iconModal"></i> modifier';
     openModalContent.appendChild(openModalBtn);
+
+    // Fais disparaitre mes boutons catégorie
+    const filterContainer = document.querySelector('.filters');
+    filterContainer.classList.add("hidden");
   }
 }
 isConnected();
