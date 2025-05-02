@@ -1,7 +1,10 @@
 // Stocker tous les travaux ici
 let allWorks = []; 
 
-// Récupérer et afficher les travaux
+      // RECUPERATION DES TRAVEAUX DEPUIS LE BACKEND ET AFFICHAGE DE LA GALERIE
+
+// Fontion getWorks pour récupération depuis l'API et sauvegarde des traveaux
+
 async function getWorks() {
   try {
     const response = await fetch("http://localhost:5678/api/works");
@@ -17,6 +20,7 @@ async function getWorks() {
 }
 
 // Fonction pour afficher les travaux dans la galerie
+
 function displayWorks(works) {
   const gallery = document.querySelector('.gallery');
   gallery.innerHTML = ''; // On vide la galerie avant de remplir
@@ -36,6 +40,8 @@ function displayWorks(works) {
     gallery.appendChild(figure);
   });
 }
+
+                      // REALISATION DU FITRE DES TRAVEAUX
 
 // Récupérer les catégories
 async function getCategories() {
@@ -148,7 +154,5 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
-const showFormBtn = document.getElementById("showAddPhotoForm");
-showFormBtn.addEventListener("click", displayAddPhotoForm);
 
 

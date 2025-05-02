@@ -475,3 +475,13 @@ button {
 	background: none;
 	cursor: pointer;
 }
+
+.btn-valider:disabled {
+  background-color: grey;
+  cursor: not-allowed;
+}
+
+.btn-valider.active {
+  background-color: #1D6154; /* ou ce que tu veux */
+  cursor: pointer;
+}

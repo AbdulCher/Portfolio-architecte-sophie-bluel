@@ -2,7 +2,7 @@
 
 const openBtn = document.getElementById("openModalBtn");
 const modal = document.getElementById("modal");
-const closeBtn = document.querySelector(".modal-close"); // ✅ corrigé ici
+const closeBtn = document.querySelector(".modal-close"); // 
 const overlay = document.querySelector(".modal-overlay");
 
 //GESTION APPARITION ET DISPARITION MODALE
@@ -49,7 +49,7 @@ async function loadGallery() {
       //Ajoute écouteur d'évènement sur le bouton de suppression
       deleteBtn.addEventListener("click", async (event) => { 
         const token = localStorage.getItem("token"); //Récupère token
-        const workId = event.currentTarget.dataset.id; // Récupère l'ID de la photo à supprimer
+        const workId = event.currentTarget.dataset.id; // Identifie la cible, l'ID de la photo à supprimer
         console.log("e.currentTarget:", event.currentTarget);
         try {
           const res = await fetch(`http://localhost:5678/api/works/${workId}`, {
@@ -94,9 +94,43 @@ function displayAddPhotoForm() {
   fetchCategories();
   handleImagePreview();
   handlePhotoSubmit();
+  setupFormValidation();
 }
 
+
+
+// Fonction pour activer le bouton valider quand les champs du formulaire sont remplis
+function setupFormValidation() {
+  const imageInput = document.getElementById("image");
+  const titleInput = document.getElementById("title");
+  const categorySelect = document.getElementById("category");
+  const submitButton = document.querySelector(".btn-valider");
+
+  function checkFormValidity() {
+    const imageFilled = imageInput.files.length > 0;
+    const titleFilled = titleInput.value.trim() !== "";
+    const categoryFilled = categorySelect.value !== "";
+
+    if (imageFilled && titleFilled && categoryFilled) {
+      submitButton.disabled = false;
+      submitButton.classList.add("active");
+    } else {
+      submitButton.disabled = true;
+      submitButton.classList.remove("active");
+    }
+  }
+
+  imageInput.addEventListener("change", checkFormValidity);
+  titleInput.addEventListener("input", checkFormValidity);
+  categorySelect.addEventListener("change", checkFormValidity);
+
+  // Appel initial au cas où certains champs seraient déjà remplis
+  checkFormValidity();
+}
+
+
 async function fetchCategories() {
+  select.innerHTML = "";
   const response = await fetch("http://localhost:5678/api/categories");
   const categories = await response.json();
 
@@ -124,6 +158,7 @@ function handleImagePreview() {
       preview.style.display = "block";
     }
   });
+  
 }
 
 //ENVOIE NOUVEAU PROJET AU BACKEND VIA FORMULAIRE MODALE
@@ -137,15 +172,15 @@ function handlePhotoSubmit() {
     const formData = new FormData(form);
 
     const response = await fetch("http://localhost:5678/api/works", {
-      method: "POST",
+      method: "POST", // verbe http pour désigner l'opération demandée par la requête
       headers: {
         Authorization: `Bearer ${token}`
-      },
-      body: formData
+      }, // Format de la charge utile
+      body: formData //Charge utile => données que le serveur utilise pour traiter la requête
     });
 
     if (response.ok) {
-      alert("Photo ajoutée !");
+      confirm("Photo ajoutée !");
       form.reset();
       document.getElementById("imagePreview").style.display = "none";
       loadGallery(); // recharge la galerie
