@@ -186,6 +186,10 @@ footer nav ul {
 	margin: 2em
 }
 
+
+                 			 /*CODE AJOUTE*/
+
+/* Boutons catégorie */
 button {
 	border: solid 1px #1D6154;
 	border-radius: 20px;
@@ -204,7 +208,9 @@ button {
 	font-family: syne;
 }
 
-                 			 /*CODE AJOUTE*/
+.mes-projets {
+	margin-top: 10px;
+}
 
 /*page connexion*/
 #login-form h2{
@@ -241,32 +247,28 @@ button {
 									/*MODALE*/
 
 /* Masquer par défaut */
-.modalBtnTitle {
+.modal-hidden {
+	display: none;
+}
+.modal-btn-title {
 	display: flex;
 	flex-direction: row;
 	justify-content: center;
 }
-.openModalContent {
+.open-modal-content {
 	cursor: pointer;
 }
-#openModalBtn {
+#open-modal-btn {
 	border: transparent;
 	background-color: #fff;
 	cursor: pointer;
 }
-.iconModal {
+.icon-modal {
 	font-size: 20px;
 	font-weight: 100;
 	margin-left: 10px;
 	margin-right: 10px;
 }
-.mesProjet {
-	margin-top: 10px;
-}
-.modal-hidden {
-	display: none;
-}
- 
 /* Fond semi-transparent */
 #modal {
 	position: fixed;
@@ -276,7 +278,6 @@ button {
 	height: 100%;
 	z-index: 1000;
 }
-
 /* Overlay font d'écran gris*/
 .modal-overlay {
 	position: absolute;
@@ -285,8 +286,7 @@ button {
 	width: 100%;
 	height: 100%;
 	background-color: rgba(0, 0, 0, 0.5);
-}
-  
+} 
 /* Contenu de la modale */
 .modal-content {
 	position: relative;
@@ -313,8 +313,7 @@ button {
 	width: 100%;
 	height: auto;
 	object-fit: cover;
-}
-  
+}  
 /* Bouton de fermeture */
 .modal-close {
 	position: absolute;
@@ -325,7 +324,6 @@ button {
 	background: none;
 	cursor: pointer;
 }
-
 /* Bouton Ajouter photo de la modale*/
 .add-photo {
 	margin-top: 20px;
@@ -336,7 +334,7 @@ button {
 	cursor: pointer;
 	border-radius: 40px;
 }
-.modalTitle {
+.modal-title {
 	color: grey;
 	font-size: 20px;
 	padding-top: 20px;
@@ -346,9 +344,8 @@ button {
 	display: inline-block;
 	margin: 10px;
 }
-
 /*Icône de suppression de photo*/
-.deleteIcon {
+.delete-icon {
 	position: absolute;
 	top: 0px;
 	right: 0px;
@@ -363,7 +360,7 @@ button {
 	z-index: 2;
 }
 
-/*Formulaire d'ajout de photo de la modale*/
+/* Formulaire d'ajout de photo de la modale */
 .add-photo-form {
 	display: flex;
 	flex-direction: column;
@@ -373,7 +370,7 @@ button {
 	position: relative;
 	z-index: 2;
 }
-#showAddPhotoForm {
+#show-add-photo-form {
 	background-color: #1D6154;
 	color: #fff;
 	padding: 4px 20px 4px 20px;
@@ -433,12 +430,12 @@ button {
 	color: #306685;
 	padding: 2px 15px;
 } 
-.photoTitle {
+.photo-title {
 	display: flex;
 	justify-content: start;
 	margin: 20px 0px 10px 50px;
 }
-.photoCategory {
+.photo-category {
 	display: flex;
 	justify-content: start;
 	margin: 10px 0px 10px 50px;
@@ -467,8 +464,8 @@ button {
 	color: #fff;
 	padding: 8px;
 	margin-bottom: 20px;
-  }
-  .backToGallery {
+}
+  .back-to-gallery {
 	position: absolute;
 	top: 10px;
 	left: 18px;
@@ -477,16 +474,14 @@ button {
 	background: none;
 	cursor: pointer;
 }
-
 .btn-valider:disabled {
   background-color: grey;
   cursor: not-allowed;
 }
-
 .btn-valider.active {
-  background-color: #1D6154; /* ou ce que tu veux */
+  background-color: #1D6154; 
   cursor: pointer;
 }
 .hidden-upload-text {
 	display: none !important;
-  }
+}

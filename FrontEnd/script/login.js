@@ -4,7 +4,7 @@ const loginForm = document.getElementById("login-form");
 const emailInput = document.getElementById("email");
 const passwordInput = document.getElementById("password");
 
-// Fonction de récupération des données de connexion
+// Récupération des données de connexion //
 
 loginForm.addEventListener("submit", async (event) => {
     event.preventDefault(); 
@@ -12,8 +12,7 @@ loginForm.addEventListener("submit", async (event) => {
     await loginUser(emailInput.value, passwordInput.value);
 });
 
-                    // AUTHENTIFICATION DE L'UTILISATEUR
-
+// Autehntification de l'utilisateur //
 async function loginUser(email, password) {
     const response = await fetch("http://localhost:5678/api/users/login", {
         method: "POST",

@@ -1,15 +1,13 @@
+//=== RECUPERATION DES TRAVEAUX DEPUIS LE BACKEND ET AFFICHAGE DE LA GALERIE ===// 
+
 // Stocker tous les travaux ici
 let allWorks = []; 
 
-      // RECUPERATION DES TRAVEAUX DEPUIS LE BACKEND ET AFFICHAGE DE LA GALERIE
-
 // Fontion getWorks pour récupération depuis l'API et sauvegarde des traveaux
-
 async function getWorks() {
   try {
     const response = await fetch("http://localhost:5678/api/works");
     const works = await response.json();
-
 
     allWorks = works; // Sauvegarde tous les travaux récupérés
     displayWorks(allWorks); // On les affiche tous au départ
@@ -20,18 +18,15 @@ async function getWorks() {
 }
 
 // Fonction pour afficher les travaux dans la galerie
-
 function displayWorks(works) {
   const gallery = document.querySelector('.gallery');
   gallery.innerHTML = ''; // On vide la galerie avant de remplir
 
   works.forEach(work => {
     const figure = document.createElement('figure');
-
     const image = document.createElement('img');
     image.src = work.imageUrl;
     image.alt = work.title;
-
     const caption = document.createElement('figcaption');
     caption.innerText = work.title;
 
@@ -108,18 +103,17 @@ getCategories();  // Récupère et affiche les boutons catégories
 
 
 // Vérifier utilisateur connecté avec token détecté et afficher modalBtn
-
 async function isConnected() {
   const token = localStorage.getItem("token");
   console.log("Token détecté :", token);
 
   if (token) {
     //Fais apparaitre mon bouton pour ouvrir la modale
-    const openModalContent = document.querySelector(".openModalContent");
+    const openModalContent = document.querySelector(".open-modal-content");
     const openModalBtn = document.createElement("button");
-    openModalBtn.id = "openModalBtn";
+    openModalBtn.id = "open-modal-btn";
     openModalBtn.classList.add("modalBtn");
-    openModalBtn.innerHTML = '<i class="fa-regular fa-pen-to-square iconModal"></i> modifier';
+    openModalBtn.innerHTML = '<i class="fa-regular fa-pen-to-square icon-modal"></i> modifier';
     openModalContent.appendChild(openModalBtn);
 
     // Fais disparaitre mes boutons catégorie
@@ -130,7 +124,6 @@ async function isConnected() {
 isConnected();
 
 //Gestion connection et deconnection utilisateur
-
 document.addEventListener("DOMContentLoaded", () => {
   const loginBtn = document.getElementById("loginBtn");
   const token = localStorage.getItem("token");

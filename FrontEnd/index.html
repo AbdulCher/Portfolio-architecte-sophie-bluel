@@ -1,137 +1,135 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-	<meta charset="UTF-8">
-	<title>Sophie Bluel - Architecte d'intérieur</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Work+Sans&display=swap" rel="stylesheet">
-	<link rel="stylesheet" 
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" 
-        integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" 
-        crossorigin="anonymous" 
-        referrerpolicy="no-referrer"/>
-	<meta name="description" content="">
-	<link rel="stylesheet" href="./assets/style.css">
-</head>
-<body>
-<header>
-	<h1>Sophie Bluel <span>Architecte d'intérieur</span></h1>
-	<nav>
-		<ul>
-			<li>projets</li>
-			<li>contact</li>
-			<li id="loginBtn"><a href="login.html">login</a></li>
-			<li><img src="./assets/icons/instagram.png" alt="Instagram"></li>
-		</ul>
-	</nav>
-</header>
-<main>
-	<section id="introduction">
-		<figure>
-			<img src="./assets/images/sophie-bluel.png" alt="">
-		</figure>
-		<article>
-			<h2>Designer d'espace</h2>
-			<p>Je raconte votre histoire, je valorise vos idées. Je vous accompagne de la conception à la livraison finale du chantier.</p>
-			<p>Chaque projet sera étudié en commun, de façon à mettre en valeur les volumes, les matières et les couleurs dans le respect de l’esprit des lieux et le choix adapté des matériaux. Le suivi du chantier sera assuré dans le souci du détail, le respect du planning et du budget.</p>
-			<p>En cas de besoin, une équipe pluridisciplinaire peut-être constituée : architecte DPLG, décorateur(trice)</p>
-		</article>
-	</section>
-	<section id="port-folio">
-		
-		<div class="modalBtnTitle">
-			<h2 class="mesProjet">Mes Projets</h2>
-			<!--Bouton de la modale--->
-			<div class="openModalContent"></div>
-		</div>
+	<head>
+		<meta charset="UTF-8">
+		<title>Sophie Bluel - Architecte d'intérieur</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Work+Sans&display=swap" rel="stylesheet">
+		<link rel="stylesheet" 
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" 
+			integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" 
+			crossorigin="anonymous" 
+			referrerpolicy="no-referrer"/>
+		<meta name="description" content="">
+		<link rel="stylesheet" href="./assets/style.css">
+	</head>
+	<body>
+		<header>
+			<h1>Sophie Bluel <span>Architecte d'intérieur</span></h1>
+			<nav>
+				<ul>
+					<li>projets</li>
+					<li>contact</li>
+					<li id="loginBtn"><a href="login.html">login</a></li>
+					<li><img src="./assets/icons/instagram.png" alt="Instagram"></li>
+				</ul>
+			</nav>
+		</header>
+		<main>
+			<section id="introduction">
+				<figure>
+					<img src="./assets/images/sophie-bluel.png" alt="">
+				</figure>
+				<article>
+					<h2>Designer d'espace</h2>
+					<p>Je raconte votre histoire, je valorise vos idées. Je vous accompagne de la conception à la livraison finale du chantier.</p>
+					<p>Chaque projet sera étudié en commun, de façon à mettre en valeur les volumes, les matières et les couleurs dans le respect de l’esprit des lieux et le choix adapté des matériaux. Le suivi du chantier sera assuré dans le souci du détail, le respect du planning et du budget.</p>
+					<p>En cas de besoin, une équipe pluridisciplinaire peut-être constituée : architecte DPLG, décorateur(trice)</p>
+				</article>
+			</section>
+			<section id="port-folio">
+				
+				<div class="modal-btn-title">
+					<h2 class="mes-projets">Mes Projets</h2>
+					<!--Bouton de la modale--->
+					<div class="open-modal-content"></div>
+				</div>
 
-		<!-- HTML gestion apparition et disparition modale-->
-		<div id="modal" class="modal-hidden">
-			<div class="modal-overlay"></div>
-			<div class="modal-content">
-				<span class="modal-close">&times;</span>
-				<div id="modalBody">
-					<div id="modal-gallery-view">
-						<h2 class="modalTitle">Galérie photo</h2>
-						<div id="modal-gallery"></div>
-						<button id="showAddPhotoForm">Ajouter une photo</button>
-					</div>
-
-					<!-- HTML modale ajouter une photo-->
-					<div id="addPhotoForm" class="hidden">
-						<i class="fa fa-arrow-left backToGallery"></i>
-						<h2 class="modalTitle">Ajouter une photo</h2>
-						<form class="add-photo-form" id="add-photo-form">
-							<div class="upload-area">
-								<div class="preview-wrapper">
-									<img id="preview-image" src="./assets/icons/image-placeholder.svg" alt="Aperçu">
-									<div id="upload-text">
-										<label for="image" class="upload-label">+ Ajouter photo</label>
-										<input type="file" id="image" name="image" accept="image/*" hidden required>
-										<p class="upload-info">jpg, png : 4mo max</p>
-									</div>
-								</div>
+				<!-- HTML gestion apparition et disparition modale-->
+				<div id="modal" class="modal-hidden">
+					<div class="modal-overlay"></div>
+					<div class="modal-content">
+						<span class="modal-close">&times;</span>
+						<div id="modal-body">
+							<div id="modal-gallery-view">
+								<h2 class="modal-title">Galérie photo</h2>
+								<div id="modal-gallery"></div>
+								<button id="show-add-photo-form">Ajouter une photo</button>
 							</div>
-							
-							<!--Formulaire de la modale-->
-							<label for="title" class="photoTitle">Titre</label>
-							<input type="text" id="title" name="title" required>
-						
-							<label for="category" class="photoCategory">Catégorie</label>
-							<select id="category" name="category" required>
-								<option value="">Sélectionner</option>
-								<option value="1">Objets</option>
-								<option value="2">Appartements</option>
-								<option value="3">Hôtels & restaurants</option>
-							</select>
-						
-							<hr>
-							<button type="submit" class="btn-valider">Valider</button>
-						</form>
+
+							<!-- HTML modale ajouter une photo-->
+							<div id="addPhotoForm" class="hidden">
+								<i class="fa fa-arrow-left back-to-gallery"></i>
+								<h2 class="modal-title">Ajouter une photo</h2>
+								<form class="add-photo-form" id="add-photo-form">
+									<div class="upload-area">
+										<div class="preview-wrapper">
+											<img id="preview-image" src="./assets/icons/image-placeholder.svg" alt="Aperçu">
+											<div id="upload-text">
+												<label for="image" class="upload-label">+ Ajouter photo</label>
+												<input type="file" id="image" name="image" accept="image/*" hidden required>
+												<p class="upload-info">jpg, png : 4mo max</p>
+											</div>
+										</div>
+									</div>
+									
+									<!--Formulaire de la modale-->
+									<label for="title" class="photo-title">Titre</label>
+									<input type="text" id="title" name="title" required>
+								
+									<label for="category" class="photo-category">Catégorie</label>
+									<select id="category" name="category" required>
+										<option value="">Sélectionner</option>
+										<option value="1">Objets</option>
+										<option value="2">Appartements</option>
+										<option value="3">Hôtels & restaurants</option>
+									</select>
+								
+									<hr>
+									<button type="submit" class="btn-valider">Valider</button>
+								</form>
+							</div>
+						</div>
 					</div>
 				</div>
-			</div>
-		</div>
 
-		
-			
-		<!--Gestion de filtre des category-->
-		<div class="filters">
+				<!--Gestion de filtre des category-->
+				<div class="filters">
 
-		</div>
+				</div>
 
-		<!--Gestion de la gallery-->
-		<div class="gallery">
-			
-		</div>
-	</section>
-	<section id="contact"> <!--Formulaire de contact de la page d'accueil-->
-		<h2>Contact</h2>
-		<p>Vous avez un projet ? Discutons-en !</p>
-		<form action="#" method="post">
-			<label for="name">Nom</label>
-			<input type="text" name="name" id="name">
-			<label for="email">Email</label>
-			<input type="email" name="email" id="email">
-			<label for="message">Message</label>
-			<textarea name="message" id="message" cols="30" rows="10"></textarea>
-			<input type="submit" value="Envoyer">
-		</form>
-	</section>
-</main>
+				<!--Gestion de la gallery-->
+				<div class="gallery">
+					
+				</div>
+			</section>
+			<section id="contact"> <!--Formulaire de contact de la page d'accueil-->
+				<h2>Contact</h2>
+				<p>Vous avez un projet ? Discutons-en !</p>
+				<form action="#" method="post">
+					<label for="name">Nom</label>
+					<input type="text" name="name" id="name">
+					<label for="email">Email</label>
+					<input type="email" name="email" id="email">
+					<label for="message">Message</label>
+					<textarea name="message" id="message" cols="30" rows="10"></textarea>
+					<input type="submit" value="Envoyer">
+				</form>
+			</section>
+		</main>
 
-<footer>
-	<nav>
-		<ul>
-			<li>Mentions Légales</li>
-		</ul>
-	</nav>
-</footer>
+		<footer>
+			<nav>
+				<ul>
+					<li>Mentions Légales</li>
+				</ul>
+			</nav>
+		</footer>
 
-</body>
-<script src="script/works.js" defer></script>
-<script src="script/modal.js" defer></script>
+	</body>
+	<script src="script/works.js" defer></script>
+	<script src="script/modal.js" defer></script>
 
 </html>

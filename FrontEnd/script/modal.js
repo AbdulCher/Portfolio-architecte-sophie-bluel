@@ -1,14 +1,14 @@
-// === GESTION DE LA MODALE === //
+                              // === GESTION DE LA MODALE === //
 
 const modal = document.getElementById("modal");
-const openBtn = document.getElementById("openModalBtn");
+const openBtn = document.getElementById("open-modal-btn");
 const closeBtn = document.querySelector(".modal-close");
 const overlay = document.querySelector(".modal-overlay");
 
 const modalGalleryView = document.getElementById("modal-gallery-view");
 const addPhotoForm = document.getElementById("addPhotoForm");
-const backIcon = document.querySelector(".backToGallery");
-const showAddPhotoFormBtn = document.getElementById("showAddPhotoForm");
+const backIcon = document.querySelector(".back-to-gallery");
+const showAddPhotoFormBtn = document.getElementById("show-add-photo-form");
 
 // Ouvrir la modale
 openBtn.addEventListener("click", () => {
@@ -44,7 +44,6 @@ function showAddPhotoForm() {
   // Reset image
   preview.src = "./assets/icons/image-placeholder.svg";
   
-
   // Réaffiche les textes
   uploadText.classList.remove("hidden-upload-text");
 
@@ -63,8 +62,7 @@ backIcon.addEventListener("click", () => {
   loadGallery(); // Recharge la galerie si un projet a été ajouté
 });
 
-
-// === GESTION DE LA GALERIE === //
+                              // === GESTION DE LA GALERIE === //
 
 async function loadGallery() {
   const modalGallery = document.getElementById("modal-gallery");
@@ -83,7 +81,7 @@ async function loadGallery() {
 
       const deleteBtn = document.createElement("button");
       deleteBtn.innerHTML = '<i class="fa-solid fa-trash-can"></i>';
-      deleteBtn.classList.add("deleteIcon");
+      deleteBtn.classList.add("delete-icon");
       deleteBtn.dataset.id = work.id;
 
       deleteBtn.addEventListener("click", async (e) => {
@@ -118,7 +116,7 @@ async function loadGallery() {
 }
 
 
-// === GESTION DU FORMULAIRE === //
+                            // === GESTION DU FORMULAIRE === //
 
 function handleImagePreview() {
   const input = document.getElementById("image");
@@ -135,19 +133,14 @@ function handleImagePreview() {
   });
 }
 
-
-//showAddPhotoFormBtn.addEventListener("click", showAddPhotoForm);
-//backIcon.addEventListener("click", () => {
-  //showGalleryView();
-  //loadGallery(); // Recharge la galerie si un projet a été ajouté
-//});
-
+// Fonction de validation du formulaire
 function setupFormValidation() {
   const imageInput = document.getElementById("image");
   const titleInput = document.getElementById("title");
   const categorySelect = document.getElementById("category");
   const submitButton = document.querySelector(".btn-valider");
 
+  // Vérification du formulaire
   function checkFormValidity() {
     const imageFilled = imageInput.files.length > 0;
     const titleFilled = titleInput.value.trim() !== "";
