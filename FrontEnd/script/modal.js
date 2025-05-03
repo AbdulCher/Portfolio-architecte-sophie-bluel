@@ -32,8 +32,24 @@ function showGalleryView() {
 
 // Afficher le formulaire
 function showAddPhotoForm() {
+  const modalGalleryView = document.getElementById("modal-gallery-view");
+  const addPhotoForm = document.getElementById("addPhotoForm");
+  const preview = document.getElementById("preview-image");
+  const uploadText = document.getElementById("upload-text");
+  const form = document.getElementById("add-photo-form");
+
   modalGalleryView.classList.add("hidden");
   addPhotoForm.classList.remove("hidden");
+
+  // Reset image
+  preview.src = "./assets/icons/image-placeholder.svg";
+  
+
+  // Réaffiche les textes
+  uploadText.classList.remove("hidden-upload-text");
+
+  // Reset du formulaire complet
+  form.reset();
 
   fetchCategories();
   handleImagePreview();
@@ -113,11 +129,12 @@ function handleImagePreview() {
     const file = input.files[0];
     if (file) {
       preview.src = URL.createObjectURL(file);
-      preview.style.display = "block";
-      uploadText.style.display = "none"; // 👈 Cache le label + paragraphe
+      preview.style.display = "block"; // Montre l'image
+      uploadText.classList.add("hidden-upload-text"); // Cache label + paragraphe
     }
   });
 }
+
 
 //showAddPhotoFormBtn.addEventListener("click", showAddPhotoForm);
 //backIcon.addEventListener("click", () => {

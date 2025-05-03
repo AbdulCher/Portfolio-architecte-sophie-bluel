@@ -487,3 +487,6 @@ button {
   background-color: #1D6154; /* ou ce que tu veux */
   cursor: pointer;
 }
+.hidden-upload-text {
+	display: none !important;
+  }
