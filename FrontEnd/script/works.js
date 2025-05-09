@@ -58,7 +58,7 @@ function displayCategoryButtons(categories) {
   const allBtn = document.createElement('button');
   allBtn.textContent = "Tous";
   allBtn.dataset.id = 0;
-  allBtn.classList.add("btnTous");
+  allBtn.classList.add("btnAll");
   allBtn.classList.add('active'); // Par défaut actif
   filterContainer.appendChild(allBtn);
 

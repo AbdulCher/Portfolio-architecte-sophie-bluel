@@ -12,9 +12,11 @@ const showAddPhotoFormBtn = document.getElementById("show-add-photo-form");
 
 // Ouvrir la modale
 openBtn.addEventListener("click", () => {
-  modal.classList.remove("modal-hidden");
-  showGalleryView();
-  loadGallery();
+  if(openBtn) {
+    modal.classList.remove("modal-hidden");
+    showGalleryView();
+    loadGallery();
+  } 
 });
 
 // Fermer la modale
@@ -97,6 +99,7 @@ async function loadGallery() {
           });
 
           if (res.ok) {
+            getWorks(); // Actualise l'ajout de la galerie de la page
             figure.remove(); // Retire visuellement
           } else {
             alert("Erreur lors de la suppression");
@@ -197,6 +200,7 @@ function handlePhotoSubmit() {
       });
 
       if (response.ok) {
+        getWorks(); //Actualise l'ajout de la galerie de la page
         alert("Photo ajoutée !");
         form.reset();
         document.getElementById("preview-image").src = "./assets/icons/image-placeholder.svg";
